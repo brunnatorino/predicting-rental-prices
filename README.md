@@ -1,1 +1,3 @@
 # business-analytics
+
+This a script meant to scrape data from the Dutch rental website Pararius (compliant with TOS and robots.txt), clean the data and transform it into datasets, generate geographical coordinates based on the street address, get data from yelp about rating and prices of nearby restaurantes (based on postcode), calculate the distance of the coordinates from the city center, create dummy variables for the categorical columns (i.e. rental agencies) and train/test a k-fold random forest algorithm on the data in order to generate a model that can predict the market value of rentals in amsterdam. 

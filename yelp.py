@@ -9,7 +9,7 @@ url='https://api.yelp.com/v3/businesses/search'
 
 offset = 1
 while count <= 901:
-    params={'term':'Restaurants', 'location': city, 'limit': 1, 'offset': offset}
+    params={'term':'Restaurants', 'location': 'amsterdam', 'limit': 1, 'offset': offset}
     req = requests.get(url, params=params, headers=headers)
     parsed = json.loads(req.text)
     n = 0
@@ -29,3 +29,5 @@ while count <= 901:
 
 
 yelp1 = pd.DataFrame({'name':name, 'rating':rating, 'address':address,'zipcode':zipcode, 'city':city, 'prices':prices,'coordinates':coordinates})
+
+

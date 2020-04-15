@@ -30,4 +30,18 @@ while count <= 901:
 
 yelp1 = pd.DataFrame({'name':name, 'rating':rating, 'address':address,'zipcode':zipcode, 'city':city, 'prices':prices,'coordinates':coordinates})
 
+yelp1['zip_len'] = yelp1.zipcode.str.len()
+yelp1 = yelp1[yelp1['zip_len'] > 4]
+yelp = yelp1.copy()
+yelp['postcode2'] = yelp['zipcode'].str.replace('\s','')
+yelp['postcode2']= yelp.postcode2.str[0:5]
+yelp['price_len'] = yelp.prices.str.len()
+yelp_prices = yelp.groupby(['postcode2']).price_len.mean()
+yelp_rate = yelp.groupby(['postcode2']).rating.mean()
+yelp_prices = pd.DataFrame(data=yelp_prices)
+yelp_rate = pd.DataFrame(data=yelp_rate)
+dict1 = yelp_prices.to_dict()['price_len']
+dict2 = yelp_rate.to_dict()['rating']
+
+amsterdam = df.copy()
 

@@ -49,7 +49,7 @@ while count <= 100:
             new_url = url + str(count2)
             print(new_url)
 
-            response = get(new_url, headers=headers)
+            response = get(new_url)
             html_soup = BeautifulSoup(response.text, 'html.parser')
             print(response)
             house_data = html_soup.find_all('li', class_="search-list__item search-list__item--listing")
